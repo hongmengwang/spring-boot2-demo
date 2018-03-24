@@ -48,7 +48,7 @@ http://localhost:8000/v1/departments?query=xxx&page=1&sort=id
 ### API Parameter
 All the input/output parameter names are SNAKE_CASE format, the framework will automatically convert snake_case to camelCase, and set the values into your entity/dto
 ### Examples
-| Operation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Http&nbsp;Type | Curl Command |
+| Operation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Http&nbsp;Type | Curl Command |
 | -------- | -------- | -------- |
 | Get Departments | `GET` | curl --request GET --url http://localhost:8000/v1/departments |
 | Add Department | `POST` | curl --request POST --url http://localhost:8000/v1/departments --header 'Content-Type: application/json' --data '{"id":1, "name":"Data Science", "floor":11, "created_by":"wang", "updated_by":"wang"}'|
