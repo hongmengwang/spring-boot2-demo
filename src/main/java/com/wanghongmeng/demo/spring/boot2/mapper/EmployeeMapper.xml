@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.2//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanghongmeng.demo.spring.boot2.dao.EmployeeDao">
+
+    <resultMap type="Employee" id="Employee" autoMapping="true">
+        <association property="department" column="department_id" javaType="Department" autoMapping="true"
+                     select="com.wanghongmeng.demo.spring.boot2.dao.DepartmentDao.getById"/>
+    </resultMap>
+
+    <sql id="addColumns">
+        name, department_id, employee_no, created_by, updated_by
+    </sql>
+
+    <sql id="addValues">
+        #{name}, #{departmentId}, #{employeeNo}, #{createdBy}, #{updatedBy}
+    </sql>
+
+    <select id="get" resultMap="Employee">
+        SELECT * FROM employee
+    </select>
+
+    <select id="getById" resultMap="Employee">
+        SELECT * FROM employee WHERE id = #{id}
+    </select>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO employee(<include refid="addColumns"/>) VALUES (<include refid="addValues"/>)
+    </insert>
+
+</mapper>

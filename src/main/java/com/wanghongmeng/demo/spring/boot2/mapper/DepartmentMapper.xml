@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.2//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wanghongmeng.demo.spring.boot2.dao.DepartmentDao">
+
+    <sql id="addColumns">
+        name, floor, created_by, updated_by
+    </sql>
+
+    <sql id="addValues">
+        #{name}, #{floor}, #{createdBy}, #{updatedBy}
+    </sql>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO department(<include refid="addColumns"/>) VALUES (<include refid="addValues"/>)
+    </insert>
+
+    <update id="update" parameterType="Department">
+        UPDATE department SET name = #{name}, floor = #{floor} WHERE id = #{id}
+    </update>
+</mapper>

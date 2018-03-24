@@ -1,0 +1,14 @@
+**/target/*
+**/out/*
+**/rebel.xml
+**/.settings
+**/.DS_Store
+*.iml
+*.war
+.idea/*
+**/*.eml
+.classpath
+.project
+*.tar.gz
+build/
+*log

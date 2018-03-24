@@ -1,0 +1,70 @@
+spring:
+    profiles.active: dev
+    application.name: spring-boot2-demo
+    output.ansi.enabled: ALWAYS
+    main:
+        web-application-type: servlet
+        banner-mode: "off"
+    aop:
+        auto: true
+        proxy-target-class: true
+    http.encoding:
+        charset: UTF-8
+        enabled: true
+        force: true
+    jackson:
+      property-naming-strategy: SNAKE_CASE
+      date-format: yyyy-MM-dd HH:mm:ss
+
+server:
+    port: 8000
+    error.whitelabel.enabled: true
+    max-http-header-size: 16384
+    compression:
+        enabled: true
+        mime-types: text/html,text/plain,application/json
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 2000
+        basedir: logs
+        accesslog:
+            enabled: true
+            buffered: false
+            directory: .
+            pattern: combined
+            prefix: tomcat-access
+    error:
+      include-exception: true
+
+management:
+    endpoints.web.exposure.include: info, threaddump, shutdown
+    endpoint:
+        shutdown:
+            enabled: true
+
+mybatis:
+    type-aliases-package: com.wanghongmeng.demo.spring.boot2
+    mapper-locations: com/wanghongmeng/demo/spring/boot2/mapper/*Mapper.xml
+    configuration:
+        map-underscore-to-camel-case: true
+        default-fetch-size: 100
+        default-statement-timeout: 30
+
+---
+spring.profiles: dev
+
+#spring.datasource:
+#    url: jdbc:mysql://localhost/spring-boot2-demo?useSSL=false
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.zaxxer.hikari.HikariDataSource
+#    hikari:
+#        idle-timeout: 10000
+#        maximum-pool-size: 50
+#        minimum-idle: 20
+#        pool-name: HikariPool
+---
+spring.profiles: stg
+---
+spring.profiles: prd
