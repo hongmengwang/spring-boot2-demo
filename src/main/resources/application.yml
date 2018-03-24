@@ -17,7 +17,7 @@ spring:
       date-format: yyyy-MM-dd HH:mm:ss
 
 server:
-    port: 8000
+    port: 8080
     error.whitelabel.enabled: true
     max-http-header-size: 16384
     compression:

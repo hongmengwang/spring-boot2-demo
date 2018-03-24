@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.resources.includeEmptyDirs>true</maven.resources.includeEmptyDirs>
+        <docker.image.prefix>wanghongmeng</docker.image.prefix>
         <maven.artifact.threads>10</maven.artifact.threads>
         <java.version>1.8</java.version>
         <spring.cloud.version>Edgware.SR2</spring.cloud.version>
@@ -27,6 +28,7 @@
         <plugin-jar.version>3.0.2</plugin-jar.version>
         <plugin-surefire-report.version>2.21.0</plugin-surefire-report.version>
         <plugin-jacoco.version>0.8.0</plugin-jacoco.version>
+        <plugin-dockerfile.version>1.4.0</plugin-dockerfile.version>
     </properties>
 
     <dependencyManagement>
@@ -220,6 +222,18 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${plugin-dockerfile.version}</version>
+                <configuration>
+                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
             </plugin>
         </plugins>
     </build>
