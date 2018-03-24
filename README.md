@@ -30,5 +30,5 @@ docker run -dt -p 8080:8080 wanghongmeng/spring-boot2-demo:1.0.0
 ```
 
 ## TODOs
-- [ ] Integrate with CI
-- [ ] Integrate with Code Review
+- [ ] Connect to internal docker repository
+- [ ] Push images to internal repository after build
