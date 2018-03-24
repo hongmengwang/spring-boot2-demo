@@ -15,6 +15,7 @@ This is the demo of spring boot2
 * [Logback](https://logback.qos.ch)
 * [Lombok](https://projectlombok.org)
 * [JSON API](http://jsonapi.org/recommendations)
+* [Docker](https://www.docker.com/)
 
 ## Installation
 ### Build
@@ -30,5 +31,5 @@ docker run -dt -p 8080:8080 wanghongmeng/spring-boot2-demo:1.0.0
 ```
 
 ## TODOs
-- [ ] Integrate with CI
-- [ ] Integrate with Code Review
+- [ ] Connect to internal docker repository
+- [ ] Push images to internal repository after build
