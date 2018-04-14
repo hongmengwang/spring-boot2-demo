@@ -19,6 +19,8 @@ spring:
 
 server:
     port: 8080
+    http2:
+      enabled: true
     error.whitelabel.enabled: true
     max-http-header-size: 16384
     compression:
