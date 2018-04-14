@@ -1,6 +1,7 @@
 spring:
     profiles.active: dev
     application.name: spring-boot2-demo
+    application.log.path: "."
     output.ansi.enabled: ALWAYS
     main:
         web-application-type: servlet
