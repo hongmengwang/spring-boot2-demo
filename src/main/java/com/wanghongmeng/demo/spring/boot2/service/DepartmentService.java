@@ -25,8 +25,9 @@ public class DepartmentService {
         return departmentDao.getById(id);
     }
 
-    public int add(Department department) {
-        return departmentDao.add(department);
+    public Department add(Department department) {
+        departmentDao.add(department);
+        return department;
     }
 
     public void delete(int id) {

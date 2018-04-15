@@ -49,7 +49,8 @@ class DepartmentServiceTest extends BaseTest {
     @DisplayName("Add Department")
     void testAdd() {
         BDDMockito.given(departmentDao.add(department)).willReturn(1);
-        int id = departmentService.add(department);
+        departmentService.add(department);
+        int id = department.getId();
         Assertions.assertEquals(1, id);
     }
 }

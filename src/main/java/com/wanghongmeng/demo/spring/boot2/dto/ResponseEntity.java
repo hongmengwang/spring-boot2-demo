@@ -15,6 +15,11 @@ public class ResponseEntity {
     private String path;
     private Object data;
 
+    public ResponseEntity() {
+        this.status = HttpStatus.OK.value();
+        this.message = "success";
+    }
+
     public ResponseEntity(Object data) {
         this.status = HttpStatus.OK.value();
         this.data = data;

@@ -39,8 +39,8 @@ public class DepartmentController {
     @PostMapping(value = "")
     @ApiOperation(value = "Add Department", tags = "v1")
     public ResponseEntity add(@RequestBody Department department) {
-        int id = departmentService.add(department);
-        return new ResponseEntity(id);
+        Department result = departmentService.add(department);
+        return new ResponseEntity(result);
     }
 
     @DeleteMapping("/{id}")
