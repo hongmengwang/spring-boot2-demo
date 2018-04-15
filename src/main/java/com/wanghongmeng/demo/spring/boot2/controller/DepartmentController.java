@@ -7,6 +7,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -24,36 +26,36 @@ public class DepartmentController {
 
     @GetMapping("")
     @ApiOperation(value = "Get All Departments", tags = "v1")
-    public ResponseEntity get() {
+    public Flux<ResponseEntity> get() {
         List<Department> departmentList = departmentService.get();
-        return new ResponseEntity(departmentList);
+        return Flux.just(new ResponseEntity(departmentList));
     }
 
     @GetMapping("/{id}")
     @ApiOperation(value = "Get Department By Id", tags = "v1")
-    public ResponseEntity getById(@PathVariable int id) {
+    public Mono<ResponseEntity> getById(@PathVariable int id) {
         Department department = departmentService.getById(id);
-        return new ResponseEntity(department);
+        return Mono.just(new ResponseEntity(department));
     }
 
     @PostMapping(value = "")
     @ApiOperation(value = "Add Department", tags = "v1")
-    public ResponseEntity add(@RequestBody Department department) {
+    public Mono<ResponseEntity>  add(@RequestBody Department department) {
         Department result = departmentService.add(department);
-        return new ResponseEntity(result);
+        return Mono.just(new ResponseEntity(result));
     }
 
     @DeleteMapping("/{id}")
     @ApiOperation(value = "Delete Department By Id", tags = "v1")
-    public ResponseEntity delete(@PathVariable int id) {
+    public Mono<ResponseEntity> delete(@PathVariable int id) {
         departmentService.delete(id);
-        return new ResponseEntity(id);
+        return Mono.just(new ResponseEntity(id));
     }
 
     @PutMapping("")
     @ApiOperation(value = "Update Department", tags = "v1")
-    public ResponseEntity update(@RequestBody Department department) {
+    public Mono<ResponseEntity> update(@RequestBody Department department) {
         int count = departmentService.update(department);
-        return new ResponseEntity(count);
+        return Mono.just(new ResponseEntity(count));
     }
 }
