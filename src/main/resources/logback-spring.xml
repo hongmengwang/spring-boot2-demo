@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <springProperty scope="context" name="app.name" source="spring.application.name" />
-    <springProperty scope="context" name="app.log.path" source="spring.application.log.path" />
+    <springProperty scope="context" name="app.name" source="spring.application.name"/>
+    <springProperty scope="context" name="app.log.path" source="spring.application.log.path"/>
 
     <contextName>${app.name}</contextName>
     <property name="default_charset" value="UTF-8"/>
